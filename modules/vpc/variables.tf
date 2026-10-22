@@ -1,0 +1,24 @@
+variable "vpc_cidr" {
+    type = string
+    description = "IP range for the VPC, in CIDR notation"
+}
+
+variable "name" {
+    type = string
+    description = "Prefix for resource names, like dev or prod"
+}
+
+variable "azs" {
+    type = list(string)
+    description = "Availability zones to use"
+}
+
+variable "public_subnet_cidrs" {
+    type = list(string)
+    description = "Ip ranges for the pubic subnets, one per AZ"
+}
+
+variable "private_subnet_cidrs" {
+    type = list(string)
+    description = "Ip ranges for the private subnets, one per AZ"
+}
