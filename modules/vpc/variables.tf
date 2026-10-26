@@ -28,3 +28,8 @@ variable "enable_nat_gateway" {
   default     = false
   description = "Create a NAT gateway so private subnets can reach the internet. Costs money while running."
 }
+
+variable "subnet_ids" {
+  type = list(string)
+  description = "Subnets for the cluster's network connections (the private subnets)"
+}
