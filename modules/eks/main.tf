@@ -32,7 +32,7 @@ resource "aws_eks_cluster" "main" {
   }
 
   role_arn = aws_iam_role.cluster.arn
-  version  = "1.35"
+  version  = var.kubernetes_version
 
   vpc_config {
     subnet_ids = var.subnet_ids
@@ -75,16 +75,17 @@ resource "aws_iam_role_policy_attachment" "cni" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
 
-resource "aws_eks_node_group" "example" {
+resource "aws_eks_node_group" "main" {
   cluster_name    = aws_eks_cluster.main.name
   node_group_name = "${var.name}-eks-node-group"
   node_role_arn   = aws_iam_role.node.arn
   subnet_ids      = var.subnet_ids
+  instance_types = var.kubernetes_instance_type
 
   scaling_config {
-    desired_size = 2
-    max_size     = 2
-    min_size     = 1
+    desired_size = var.desired_size
+    max_size     = var.max_size
+    min_size     = var.min_size
   }
 
   update_config {
@@ -96,4 +97,5 @@ resource "aws_eks_node_group" "example" {
     aws_iam_role_policy_attachment.container_registry,
     aws_iam_role_policy_attachment.cni
   ]
+
 }
