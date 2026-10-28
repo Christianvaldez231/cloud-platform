@@ -80,7 +80,7 @@ resource "aws_eks_node_group" "main" {
   node_group_name = "${var.name}-eks-node-group"
   node_role_arn   = aws_iam_role.node.arn
   subnet_ids      = var.subnet_ids
-  instance_types = var.kubernetes_instance_type
+  instance_types  = var.kubernetes_instance_type
 
   scaling_config {
     desired_size = var.desired_size
