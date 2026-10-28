@@ -39,7 +39,7 @@ module "eks" {
   kubernetes_version       = "1.35"
   kubernetes_instance_type = ["t3.medium"]
   desired_size             = "2"
-  max_size                 = "3"
+  max_size                 = "2"
   min_size                 = "1"
   subnet_ids               = module.vpc.private_subnet_ids
   depends_on               = [module.vpc]
