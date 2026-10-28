@@ -9,12 +9,12 @@ variable "subnet_ids" {
 }
 
 variable "kubernetes_version" {
-  type = string
+  type        = string
   description = "The kubernetes version being used"
 }
 
 variable "kubernetes_instance_type" {
-  type = list(string)
+  type        = list(string)
   description = "The instance type eks runs"
 }
 
