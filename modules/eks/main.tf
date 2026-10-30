@@ -35,8 +35,8 @@ resource "aws_eks_cluster" "main" {
   version  = var.kubernetes_version
 
   vpc_config {
-    subnet_ids = var.subnet_ids
-    public_access_cidrs = [var.access_ip]
+    subnet_ids              = var.subnet_ids
+    public_access_cidrs     = [var.access_ip]
     endpoint_private_access = true
   }
 
