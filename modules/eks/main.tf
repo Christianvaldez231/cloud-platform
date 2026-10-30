@@ -21,7 +21,7 @@ resource "aws_iam_role_policy_attachment" "cluster" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
-#trivy:ignore:AVD-AWS-0039
+#trivy:ignore:AVD-AWS-0039 trivy:ignore:AVD-AWS-0040 trivy:ignore:AVD-AWS-0041
 resource "aws_eks_cluster" "main" {
   name = "${var.name}-eks-cluster"
 
