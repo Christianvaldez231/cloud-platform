@@ -32,6 +32,7 @@ than one computer and will later be applied from CI.
   stay restricted.
 - Every new environment needs its own backend block with a different key.
 
+
 ## Known gaps (deliberately deferred)
 - The `bootstrap` state is not in the bucket. It could be migrated once
   everything else is stable.
@@ -39,6 +40,8 @@ than one computer and will later be applied from CI.
 - No access logging and no replication to a second region.
 - State and infrastructure share one AWS account. Larger setups keep state in
   a separate account.
+- The bucket's encryption finding (AWS-0132, no customer-managed key) is
+  accepted, with an inline `trivy:ignore` comment in `bootstrap/main.tf`.
 
 ## Alternatives considered
 - Local state: simplest, but not shared and easy to lose.
