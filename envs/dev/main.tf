@@ -41,6 +41,7 @@ module "eks" {
   desired_size             = "2"
   max_size                 = "2"
   min_size                 = "1"
+  access_ip                = "73.57.212.229/32"
   subnet_ids               = module.vpc.private_subnet_ids
   depends_on               = [module.vpc]
 

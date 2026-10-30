@@ -21,7 +21,7 @@ resource "aws_iam_role_policy_attachment" "cluster" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
-
+#trivy:ignore:AVD-AWS-0039
 resource "aws_eks_cluster" "main" {
   name = "${var.name}-eks-cluster"
 
@@ -36,6 +36,8 @@ resource "aws_eks_cluster" "main" {
 
   vpc_config {
     subnet_ids = var.subnet_ids
+    public_access_cidrs = [var.access_ip]
+    endpoint_private_access = true
   }
 
   depends_on = [

@@ -29,3 +29,8 @@ variable "max_size" {
 variable "min_size" {
   type = string
 }
+
+variable "access_ip" {
+  type = string
+  description = "Only ip that is allowed to manage kubernetes"
+}

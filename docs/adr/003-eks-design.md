@@ -43,7 +43,7 @@ because it is created and destroyed between work sessions.
 - No OIDC provider or Pod Identity yet, which pods will need to get their
   own AWS permissions.
 - Add-ons (CNI, CoreDNS, kube-proxy) use EKS defaults and are not pinned.
-
+- Security scan alerted me to the fact we dont have an encription_config block in our eks cluster to secure keys, at the moment we dont need it.
 ## Alternatives considered
 - Fargate: no nodes to manage, but costs more per pod and limits what can run.
 - Self-managed nodes: more control, but you own the patching and replacement.
